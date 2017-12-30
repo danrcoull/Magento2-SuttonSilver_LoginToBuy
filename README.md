@@ -9,17 +9,10 @@ adding to basket without first login into an account.
 Simple standard composer install to magento 2
 
 
-```
-
 ### Installing
 
 
-```
-toodo
-````
 
-
-```
 
 ## Contributing
 
