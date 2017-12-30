@@ -1,0 +1,21 @@
+{
+    "name": "suttonsilver/module-logintobuy",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "d.coull@suttonsilver.co.uk",
+            "name": "Sutton Silver"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SuttonSilver\\LoginToBuy\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
