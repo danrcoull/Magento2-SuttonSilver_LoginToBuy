@@ -1,0 +1,22 @@
+.popup-login-to-buy {
+  .modal-inner-wrap {
+    width:768px;
+    .block-content {
+      width:100%;
+
+      button,a {
+        width: 100%;
+        font-size: 20px;
+        margin-top:0;
+        margin-bottom:0;
+      }
+
+      .secondary,
+      .primary{
+        margin:0;
+        padding:0;
+        float:none;
+      }
+    }
+  }
+}

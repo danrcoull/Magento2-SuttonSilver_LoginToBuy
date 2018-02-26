@@ -7,7 +7,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="content">
+        <referenceContainer name="before.body.end">
             <block ifconfig="logintobuy/general/enabled" class="SuttonSilver\LoginToBuy\Block\Account\LoginToBuyPopup" name="login-to-buy-popup" as="login-to-buy-popup" template="SuttonSilver_LoginToBuy::account/login-to-buy.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">

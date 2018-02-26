@@ -8,7 +8,7 @@ define([
     'ko',
     'Magento_Ui/js/form/form',
     'Magento_Customer/js/action/login',
-    'Magento_Customer/js/customer-data',
+    'Magento_Customer/js/model/customer',
     'Magento_Ui/js/modal/modal',
     'mage/translate',
     'mage/url',
@@ -22,6 +22,7 @@ define([
         forgotPasswordUrl: window.loginToBuyPopup.customerForgotPasswordUrl,
         autocomplete: window.loginToBuyPopup.autocomplete,
         modalWindow: null,
+        isLoggedIn:  ko.observable(window.isCustomerLoggedIn),
         isLoading: ko.observable(false),
         defaults: {
             template: 'SuttonSilver_LoginToBuy/login-to-buy-popup'
@@ -36,8 +37,9 @@ define([
                 self.isLoading(false);
             });
 
-            console.log(self.isActive());
-            if(self.isActive())
+
+            console.log(this.isLoggedIn());
+            if(this.isLoggedIn() != true)
             {
                 self.hidePrice().hideAddToCart();
                 self.bindClick();
@@ -46,11 +48,19 @@ define([
         },
         bindClick : function(){
             var self = this;
+            $('.login-to-add, .tocart').each(function(){
+                $(this).removeAttr('data-post');
+            })
 
             $('.login-to-add, .tocart').on('click',function(e){
                 e.preventDefault();
+                e.stopPropagation();
                 self.showModal();
+                return false;
+
             })
+
+            return false;
         },
         hideAddToCart: function(){
             var self = this;
@@ -85,23 +95,18 @@ define([
             if (this.modalWindow == null) {
                 var options = {
                     'type': 'popup',
-                    'modalClass': 'popup-authentication',
+                    'modalClass': 'popup-login-to-buy',
                     'focus': '[name=username]',
                     'responsive': true,
                     'innerScroll': true,
                     'trigger': '',
+                    'title': $t('Please sign in or register'),
                     'buttons': []
                 };
 
                 this.modalWindow = element;
                 modal(options, $(this.modalWindow));
             }
-        },
-
-        /** Is login form enabled for current customer */
-        isActive: function () {
-            var customer = customerData.get('customer');
-            return customer() != false; //eslint-disable-line eqeqeq
         },
 
         /** Show login popup window */

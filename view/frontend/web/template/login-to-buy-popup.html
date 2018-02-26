@@ -5,55 +5,23 @@
  */
  -->
 
-<div class="block-authentication"
+<div class="block-authentication login-to-buy-form"
      data-bind="afterRender: setModalElement, blockLoader: isLoading"
      style="display: none">
-    <div style="display: none" class="block block-new-customer"
-         data-bind="attr: {'data-label': $t('or')}">
-        <div class="block-title">
-            <strong id="block-new-customer-heading"
-                    role="heading"
-                    aria-level="2"
-                    data-bind="i18n: 'Buy as a new customer'"></strong>
-        </div>
-        <div class="block-content" aria-labelledby="block-new-customer-heading">
-            <p data-bind="i18n: 'Creating an account has many benefits:'"></p>
-            <ul>
-                <li data-bind="i18n: 'See order and shipping status'"></li>
-                <li data-bind="i18n: 'Track order history'"></li>
-                <li data-bind="i18n: 'Check out faster'"></li>
-            </ul>
-            <div class="actions-toolbar">
-                <div class="primary">
-                    <a class="action action-register primary" data-bind="attr: {href: registerUrl}">
-                        <span data-bind="i18n: 'Create an Account'"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="block block-customer-login"
-         data-bind="attr: {'data-label': $t('or')}">
-        <div class="block-title">
-            <strong id="block-customer-login-heading"
-                    role="heading"
-                    aria-level="2"
-                    data-bind="i18n: 'Buy using your account'"></strong>
-        </div>
+      <div class="block block-customer-login">
         <!-- ko foreach: getRegion('messages') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
         <!-- ko foreach: getRegion('before') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
-        <div class="block-content" aria-labelledby="block-customer-login-heading">
-            <form class="form form-login"
+        <div class="block-content grid-container full" aria-labelledby="block-customer-login-heading">
+            <form class="form form-login grid-x grid-padding-x"
                   method="post"
                   data-bind="event: {submit: login }"
                   id="login-form">
-                <div class="fieldset login" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
-                    <div class="field email required">
+                <div class="fieldset login cell grid-x grid-padding-x" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+                    <div class="cell small-12 field email required">
                         <label class="label" for="email"><span data-bind="i18n: 'Email Address'"></span></label>
                         <div class="control">
                             <input name="username"
@@ -64,7 +32,7 @@
                                    data-validate="{required:true, 'validate-email':true}">
                         </div>
                     </div>
-                    <div class="field password required">
+                    <div class="cell small-12 field password required">
                         <label for="pass" class="label"><span data-bind="i18n: 'Password'"></span></label>
                         <div class="control">
                             <input name="password"
@@ -78,16 +46,16 @@
                     <!-- ko foreach: getRegion('additional-login-form-fields') -->
                     <!-- ko template: getTemplate() --><!-- /ko -->
                     <!-- /ko -->
-                    <div class="actions-toolbar">
+                    <div class="actions-toolbar cell small-12 grid-x grid-padding-x">
                         <input name="context" type="hidden" value="checkout" />
-                        <div class="primary">
-                            <button type="submit" class="action action-login secondary" name="send" id="send2">
+                        <div class="cell small-12 medium-6 primary">
+                            <button type="submit" class="btn-primary action action-login secondary" name="send" id="send2">
                                 <span data-bind="i18n: 'Sign In'"></span>
                             </button>
                         </div>
-                        <div class="secondary">
-                            <a class="action" data-bind="attr: {href: forgotPasswordUrl}">
-                                <span data-bind="i18n: 'Forgot Your Password?'"></span>
+                        <div class="cell secondary small-12 medium-6">
+                            <a class="action action-register  btn-secondary" data-bind="attr: {href: registerUrl}">
+                                <span data-bind="i18n: 'Register'"></span>
                             </a>
                         </div>
                     </div>
