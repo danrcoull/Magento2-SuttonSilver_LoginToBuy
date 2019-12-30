@@ -12,15 +12,6 @@ Simple standard composer install to magento 2
 ### Installing
 
 
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md]
-
-
-## Authors
-
-* **Daniel Coull** - *Initial work* - [SuttonSilver](https://www.suttonsilver.co.uk)
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/lato-black.png)](https://www.buymeacoffee.com/BHaNOMl)
 
 
